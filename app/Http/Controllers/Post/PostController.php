@@ -5,16 +5,30 @@ namespace ProgrammingBlog\Http\Controllers\Post;
 use ProgrammingBlog\Http\Controllers\Controller;
 use ProgrammingBlog\Models\Post;
 use ProgrammingBlog\Models\Category;
+use ProgrammingBlog\Repositories\CategoryRepository;
 use ProgrammingBlog\Repositories\PostRepository;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    private $repository;
+    /**
+     * Post Repository
+     *
+     * @var PostRepository
+     */
+    private $postRepository;
 
-    public function __construct(PostRepository $repo)
+    /**
+     * Category Repository
+     *
+     * @var CategoryRepository
+     */
+    private $categoryRepository;
+
+    public function __construct(PostRepository $repo, CategoryRepository $categoryRepository)
     {
-        $this->repository = $repo;
+        $this->postRepository = $repo;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -24,8 +38,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        return $this->repository->include(['categories'])->all();
-        // return Category::with('posts')->get();
+        $posts = $this->postRepository
+            ->include(['categories'])
+            ->orderBy(['id' => 'desc'])
+            ->all();
+
+        return $this->reply('post.index', ['posts' => $posts]);
+    }
+
+    public function adminIndex()
+    {
+        $posts = $this->postRepository
+            ->include(['categories'])
+            ->orderBy(['id' => 'desc'])
+            ->all();
+
+        return $this->reply('dashboard.post.index', ['posts' => $posts]);
     }
 
     /**
@@ -35,7 +63,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $allCategories = $this->categoryRepository->all();
+
+        return $this->reply('dashboard.post.create', ['categories' => $allCategories]);
     }
 
     /**
@@ -46,7 +76,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post($request->all());
+        $post->save();
+
+        $post->categories()->attach($request->input('categoryId'));
+   
+        $request->session()->flash('status', __('resource.status', ['resource' => 'post', 'status' => 'saved']));
+        return $this->adminIndex();
     }
 
     /**
@@ -55,9 +91,13 @@ class PostController extends Controller
      * @param  \ProgrammingBlog\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($post)
     {
-        //
+        $post = $this->postRepository
+            ->include(['categories'])
+            ->get($post);
+
+        return $this->reply('post.show', ['post' => $post]);
     }
 
     /**
@@ -68,7 +108,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $allCategories = $this->categoryRepository->all();
+
+        return $this->reply('dashboard.post.edit', ['categories' => $allCategories, 'post' => $post]);
     }
 
     /**
@@ -80,7 +122,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->categories()->detach();
+        $post->fill($request->all());
+        $post->categories()->attach($request->input('categoryId'));
+        $post->save();
+
+        return $this->adminIndex();
     }
 
     /**
@@ -91,6 +138,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return $this->adminIndex();
     }
 }

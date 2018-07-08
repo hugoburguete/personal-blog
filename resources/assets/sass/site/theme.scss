@@ -1,0 +1,48 @@
+// Mixin helpers
+@mixin heading-1() {
+	font-family: $base-font-family;
+	font-size: $base-font-size * 2;
+	line-height: $base-line-height * 1.25;
+	margin-bottom: $base-text-spacing;
+}
+@mixin p() {
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	margin-bottom: $base-text-spacing;
+}
+
+// Base theme
+#app-content {
+	margin-left: $sidebar-width;
+}
+
+#sidebar-me {
+	background: $base-color;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: $sidebar-width;
+	text-align: center;
+
+	.avatar {
+		border-radius: 50%;
+		margin: 30px auto;
+		display: block;
+	}
+}
+
+// Typography
+h1 {
+	@include heading-1();
+}
+
+p {
+	@include p;
+}
+
+// Widgets
+.section-heading {
+	background-color: $base-secondary-color;
+}

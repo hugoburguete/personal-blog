@@ -38,6 +38,13 @@ abstract class Repository implements RepositoryInterface
     protected $relationships = [];
 
     /**
+     * Sort fields.
+     * 
+     * @var array
+     */
+    protected $sorts = [];
+
+    /**
      * Constructor
      *
      * @param Container $context 
@@ -57,13 +64,19 @@ abstract class Repository implements RepositoryInterface
 
     /**
      * Retrieves the model
+     *
      * @return BaseModel
      */
-    private function getModel()
+    protected function getModel()
     {
         $model = $this->model;
         if (!empty($this->relationships)) {
             $model = $model->with($this->relationships);
+        }
+        if (!empty($this->sorts)) {
+            foreach ($this->sorts as $sort => $direction) {
+                $model->orderBy($sort, $direction);
+            }
         }
         return $model;
     }
@@ -82,13 +95,9 @@ abstract class Repository implements RepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function get($id) : BaseModel
+    public function get($id) : ?BaseModel
     {
-        $model = $this->model;
-        if (!empty($this->relationships)) {
-            $model->with($this->relatiopnships);
-        }
-        return $model->find($id);
+        return $this->getModel()->find($id);
     }
 
     /**
@@ -162,20 +171,6 @@ abstract class Repository implements RepositoryInterface
     }
 
     /**
-     * Populates the current repository with its corresponding model
-     *
-     * @return BaseModel
-     */
-    protected function makeModel() {
-        $model = $this->app->make($this->model());
- 
-        if (!$model instanceof Model)
-            throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
- 
-        return $this->model = $model;
-    }
-
-    /**
      * Adds relationships to eager load
      * 
      * @param  mixed $relationship 
@@ -189,6 +184,33 @@ abstract class Repository implements RepositoryInterface
 
         $this->relationships = array_merge($this->relationships, $relationship);
         return $this;
+    }
+
+    /**
+     * Must be of format ['column' => 'direction']
+     *
+     * @param  array $order
+     * @return Repository
+     */
+    public function orderBy($order)
+    {
+        // If I start getting it wrong too many times, add validation here on the array format
+        $this->sorts = $order;
+        return $this;
+    }
+
+    /**
+     * Populates the current repository with its corresponding model
+     *
+     * @return BaseModel
+     */
+    protected function makeModel() {
+        $model = $this->app->make($this->model());
+ 
+        if (!$model instanceof Model)
+            throw new RepositoryException("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
+ 
+        return $this->model = $model;
     }
 
 }

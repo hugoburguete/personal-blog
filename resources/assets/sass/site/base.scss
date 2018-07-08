@@ -1,0 +1,15 @@
+* {
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background-color: $body-bg;
+	position: relative;
+}

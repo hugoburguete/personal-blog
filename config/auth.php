@@ -99,4 +99,10 @@ return [
         ],
     ],
 
+    'adminUser' => [
+        'name' => env('AUTH_NAME', 'admin'),
+        'email' => env('AUTH_USER', 'admin@example.com'),
+        'password' => env('AUTH_PASS', 'secret'),
+    ],
+
 ];

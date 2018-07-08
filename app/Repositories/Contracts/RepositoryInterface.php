@@ -14,7 +14,7 @@ interface RepositoryInterface
      * @param  integer $id
      * @return BaseModel
 	 */
-	public function get($id) : BaseModel;
+	public function get($id) : ?BaseModel;
 
 	/**
      * Get Storage model within passed conditions

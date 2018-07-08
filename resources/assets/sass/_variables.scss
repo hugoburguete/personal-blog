@@ -1,8 +1,14 @@
-
-// Body
-$body-bg: #f5f8fa;
+// Colours
+$base-color: #888;
+$base-color-light: #f5f8fa;
+$base-secondary-color: blue;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$base-font-family: "Raleway", sans-serif;
+$base-font-size: 1em;
+$base-line-height: 1.6em;
+$base-text-spacing: 0.5em; // Used for magin bottom of typography
+
+// Body
+$body-bg: $base-color-light;
+$sidebar-width: 300px;
