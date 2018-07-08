@@ -10,6 +10,15 @@ class Category extends BaseModel
 {
 	use Sluggable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name'
+    ];
+
 	/**
 	 * Posts relationship
 	 * 

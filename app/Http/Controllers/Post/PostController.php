@@ -79,7 +79,14 @@ class PostController extends Controller
         $post = new Post($request->all());
         $post->save();
 
-        $post->categories()->attach($request->input('categoryId'));
+        if (!empty($request->input('category_name'))) {
+            $category = $this->categoryRepository->create([
+                    'name' => $request->input('category_name'),
+                ]);
+            $post->categories()->attach($category->id);
+        } else {
+            $post->categories()->attach($request->input('categoryId'));
+        }
    
         $request->session()->flash('status', __('resource.status', ['resource' => 'post', 'status' => 'saved']));
         return $this->adminIndex();

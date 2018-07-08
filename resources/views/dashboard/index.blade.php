@@ -7,11 +7,15 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Posts</div>
-                    <a href="{{ route('post.create') }}">Create Post</a>
+                    <a href="{{ route('post.create') }}">Create new post</a>
 
-                    @foreach ($recentArticles as $post)
-                        @include('dashboard.post.components.article', ['post' => $post])
-                    @endforeach
+                    @if ($recentArticles->isEmpty())
+                        @include('post.empty')
+                    @else
+                        @foreach ($recentArticles as $post)
+                            @include('dashboard.post.components.article', ['post' => $post])
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
