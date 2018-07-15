@@ -2,6 +2,7 @@
 
 namespace ProgrammingBlog\Http\Controllers\Post;
 
+use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 use ProgrammingBlog\Http\Controllers\Controller;
 use ProgrammingBlog\Models\Post;
 use ProgrammingBlog\Models\Category;
@@ -11,6 +12,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    use SEOToolsTrait;
+
     /**
      * Post Repository
      *
@@ -25,6 +28,9 @@ class PostController extends Controller
      */
     private $categoryRepository;
 
+    /**
+     * Constructor
+     */
     public function __construct(PostRepository $repo, CategoryRepository $categoryRepository)
     {
         $this->postRepository = $repo;
@@ -46,6 +52,11 @@ class PostController extends Controller
         return $this->reply('post.index', ['posts' => $posts]);
     }
 
+    /**
+     * Display a listing of the resource in the admin area.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function adminIndex()
     {
         $posts = $this->postRepository
@@ -103,6 +114,27 @@ class PostController extends Controller
         $post = $this->postRepository
             ->include(['categories'])
             ->get($post);
+
+        if (empty($post)) {
+            abort(404);
+        }
+
+        $this->seo()->setTitle($post->title);
+        $this->seo()->setDescription($post->slug);
+        $this->seo()->metatags()->addMeta('article:published_time', $post->created_at->toW3CString(), 'property');
+        $this->seo()->metatags()->addMeta('article:section', $post->categories->first()->name, 'property');
+        $this->seo()->metatags()->addKeyword($post->keywords);
+
+        $this->seo()->opengraph()->setDescription($post->short_description);
+        $this->seo()->opengraph()->setTitle($post->title);
+        // $this->seo()->opengraph()->setUrl('http://current.url.com');
+        $this->seo()->opengraph()->addProperty('type', 'article');
+        $this->seo()->opengraph()->addProperty('locale', app()->getLocale());
+
+        // $this->seo()->opengraph()->addImage($post->cover->url);
+        // $this->seo()->opengraph()->addImage($post->images->list('url'));
+        // $this->seo()->opengraph()->addImage(['url' => 'http://image.url.com/cover.jpg', 'size' => 300]);
+        // $this->seo()->opengraph()->addImage('http://image.url.com/cover.jpg', ['height' => 300, 'width' => 300]);
 
         return $this->reply('post.show', ['post' => $post]);
     }

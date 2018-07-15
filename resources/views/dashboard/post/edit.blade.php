@@ -2,10 +2,38 @@
 
 @section('content')
     <form action="{{ route('post.update', ['id' => $post->id]) }}" method="POST">
-        <label for="title">Title</label>
-        <input type="text" name="title" value="{{ old('title', $post->title) }}">
-        <label for="content">Content</label>
-        <textarea name="content" id="content" cols="30" rows="10">{{ old('content', $post->content) }}</textarea>
+        @include(
+                'components.forms.text_input', 
+                [
+                    'label' => 'Title',
+                    'name' => 'title',
+                    'value' => old('title', $post->title),
+                ]
+        )
+        @include(
+                'components.forms.textarea', 
+                [
+                    'label' => 'Short Description (make it short)',
+                    'name' => 'short_description',
+                    'value' => old('short_description', $post->short_description),
+                ]
+        )
+        @include(
+                'components.forms.text_input', 
+                [
+                    'label' => 'Key words (comma separated)',
+                    'name' => 'keywords',
+                    'value' => implode(',', old('keywords', $post->keywords)),
+                ]
+        )
+        @include(
+                'components.forms.textarea', 
+                [
+                    'label' => 'Content',
+                    'name' => 'content',
+                    'value' => old('content', $post->content),
+                ]
+        )
 
         <select name="categoryId" id="category">
             @foreach ($categories as $category)

@@ -3,9 +3,12 @@ namespace ProgrammingBlog\Repositories;
 
 use ProgrammingBlog\Models\Post;
 use ProgrammingBlog\Models\BaseModel;
+use ProgrammingBlog\Repositories\Traits\SluggableRepositoryTrait;
 
 class PostRepository extends Repository
 {
+    use SluggableRepositoryTrait;
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -25,19 +28,6 @@ class PostRepository extends Repository
             $record = $this->getBySlug($id);
         }
         return $record;
-    }
-
-    /**
-     * Finds a Post by slug
-     *
-     * @param  string $slug the slug to search for
-     * @return BaseModel
-     */
-    public function getBySlug($slug) : ?BaseModel
-    {
-        return $this->getModel()
-            ->where('slug', $slug)
-            ->first();
     }
 
     /**

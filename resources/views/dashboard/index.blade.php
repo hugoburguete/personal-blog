@@ -6,14 +6,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Posts</div>
+                <div class="card-header">Recent Posts</div>
                     <a href="{{ route('post.create') }}">Create new post</a>
+                    <a href="{{ route('category.create') }}">Create new category</a>
 
                     @if ($recentArticles->isEmpty())
                         @include('post.empty')
                     @else
                         @foreach ($recentArticles as $post)
-                            @include('dashboard.post.components.article', ['post' => $post])
+                            @include('dashboard.post.listing.article', ['post' => $post])
                         @endforeach
                     @endif
                 </div>

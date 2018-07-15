@@ -1,7 +1,7 @@
 <div id="sidebar-me" class="sidebar">
-	<img class="avatar" src="https://placehold.it/200x200" alt="Me" />
-	<h1>Hugo Burguete</h1>
-	<p>Hey. Welcome to my channel</p>
+	<img class="avatar" src="/img/floppy-disk.svg" alt="Me" />
+	<h1>FloppyDev</h1>
+	<p>We do dev stuff. <a href="/">Check it out</a></p>
 	<article>
 		<div class="section-heading">Recent articles</div>
 		

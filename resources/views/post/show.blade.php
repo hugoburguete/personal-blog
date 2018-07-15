@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('site_meta')
+	
+@endsection
+
 @section('content')
 	<article class="card card-article">
 		<header>

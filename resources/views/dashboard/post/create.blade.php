@@ -2,14 +2,38 @@
 
 @section('content')
     <form action="{{ route('post.store') }}" method="post">
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title">
-        </div>
-        <div class="form-group">
-            <label for="content">Content</label>
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
-        </div>
+        @include(
+                'components.forms.text_input', 
+                [
+                    'label' => 'Title',
+                    'name' => 'title',
+                    'value' => '',
+                ]
+        )
+        @include(
+                'components.forms.textarea', 
+                [
+                    'label' => 'Short Description (make it short)',
+                    'name' => 'short_description',
+                    'value' => '',
+                ]
+        )
+        @include(
+                'components.forms.text_input', 
+                [
+                    'label' => 'Key words (comma separated)',
+                    'name' => 'keywords',
+                    'value' => '',
+                ]
+        )
+        @include(
+                'components.forms.textarea', 
+                [
+                    'label' => 'Content',
+                    'name' => 'content',
+                    'value' => '',
+                ]
+        )
         
         <div class="form-group">
             <select name="categoryId" id="category">
@@ -22,8 +46,14 @@
         <div class="form-group">
             <p>or create a new category</p>
 
-            <label for="title">Name</label>
-            <input type="text" name="category_name">
+        @include(
+                'components.forms.text_input', 
+                [
+                    'label' => 'Category',
+                    'name' => 'category_name',
+                    'value' => '',
+                ]
+        )
         </div>
 
         {{ csrf_field() }}

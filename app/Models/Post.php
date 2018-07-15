@@ -16,7 +16,7 @@ class Post extends BaseModel
      * @var array
      */
     protected $fillable = [
-        'title', 'content' 
+        'title', 'short_description', 'keywords', 'content' 
     ];
 
     /**
@@ -39,6 +39,29 @@ class Post extends BaseModel
     // {
     //  return $query->orderBy('created_at');
     // }
+
+    /**
+     * Keywords Attribute mutator.
+     * 
+     * @param mixed $value The value to mutate
+     */
+    public function setKeywordsAttribute($value)
+    {
+        if (is_string($value)) {
+            $value = explode(',', $value);
+        }
+        $this->attributes['keywords'] = json_encode($value);
+    }
+
+    /**
+     * Keywords Attribute mutator.
+     * 
+     * @param mixed $value The value to mutate
+     */
+    public function getKeywordsAttribute($value)
+    {
+        return json_decode($value);
+    }
 
     /**
      * Return the sluggable configuration array for this model.
