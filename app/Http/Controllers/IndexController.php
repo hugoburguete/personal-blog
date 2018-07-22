@@ -26,9 +26,10 @@ class IndexController extends Controller
 
     public function index()
     {
+        $pageSlug = 'index-page';
         $posts = $this->postRepository
             ->include('categories')
             ->all();
-        return $this->reply('index.index', ['posts' => $posts]);
+        return $this->reply('index.index', ['posts' => $posts, 'pageSlug' => $pageSlug]);
     }
 }

@@ -3,7 +3,7 @@
     <head>
         @include('site.head')
     </head>
-    <body>
+    <body class="{{ $pageSlug ?? '' }}">
         <div id="app">
             @include('site.header')
             <div id="app-content">

@@ -22,24 +22,43 @@
 	color: $base-color;
 }
 
-// Base theme
-#app-content {
-	padding: 20px;
-}
-
-#sidebar-me {
+// - Base theme
+// -- Header
+#main-header {
 	display: flex;
-	background: $base-color;
+	background: $main-color;
+	text-align: center;
+
+	a {
+		display: block;
+		margin: 0 auto;
+		color: #FFF;
+		font-family: $logo-font-family;
+		font-size: $logo-font-size;
+	}
+
+	span {
+		float: left;
+		margin-top: 45px;
+
+		&.logo-prefix {
+			margin-right: -25px;
+		}
+		&.logo-suffix {
+			margin-left: -25px;
+			margin-top: 50px;
+		}
+	}
 
 	.avatar {
-		width: 200px;
+		width: 150px;
 		border-radius: 50%;
 		margin: 30px auto;
 		display: block;
 	}
 }
 
-// Typography
+// -- Typography
 h1 {
 	@include heading-1();
 }
@@ -59,5 +78,5 @@ p {
 
 // Widgets
 .section-heading {
-	background-color: $base-secondary-color;
+	background-color: $main-color;
 }

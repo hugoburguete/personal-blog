@@ -6,6 +6,9 @@
 {!! SEO::generate(config('app.env') === 'live') !!}
 @yield('site_meta')
 
+{{-- Fonts --}}
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Play" rel="stylesheet">
+
 {{-- App stylesheets --}}
 <link rel="stylesheet" href="{{ url('/css/app.css') }}">
 @yield('head_styles')
