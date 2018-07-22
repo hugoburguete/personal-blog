@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('short_description');
             $table->string('keywords');
             $table->mediumText('content');
+            $table->string('thumbnail_url');
             $table->timestamps();
         });
     }

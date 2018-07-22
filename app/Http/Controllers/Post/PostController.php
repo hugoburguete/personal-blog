@@ -87,7 +87,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // Save post
         $post = new Post($request->all());
+
+        // Store image
+        // TODO: Image resizing - there's a cool library here: https://github.com/gumlet/php-image-resize. Give that
+        // a shot.
+        $thumbnail = $request->file('thumbnail');
+        if (!empty($thumbnail)) {
+            $extension = $thumbnail->extension();
+            $path = $thumbnail->storeAs(
+                'public/thumbnails', 'thumbnail-' . $post->id . '.' .$extension
+            );
+
+            $post->thumbanil_url = $path;
+        }
+
         $post->save();
 
         if (!empty($request->input('category_name'))) {
@@ -122,7 +137,9 @@ class PostController extends Controller
         $this->seo()->setTitle($post->title);
         $this->seo()->setDescription($post->slug);
         $this->seo()->metatags()->addMeta('article:published_time', $post->created_at->toW3CString(), 'property');
-        $this->seo()->metatags()->addMeta('article:section', $post->categories->first()->name, 'property');
+        if (!$post->categories->isEmpty()) {
+            $this->seo()->metatags()->addMeta('article:section', $post->categories->first()->name, 'property');
+        }
         $this->seo()->metatags()->addKeyword($post->keywords);
 
         $this->seo()->opengraph()->setDescription($post->short_description);
