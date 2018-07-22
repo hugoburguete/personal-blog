@@ -1,0 +1,13 @@
+.card {
+
+	.card-content {
+		padding: 20px;
+		height: 100%;
+		background: #FFF;
+		-webkit-box-shadow: 1px 1px 5px 0px rgba(204, 204, 204, 0.61);
+		-moz-box-shadow: 1px 1px 5px 0px rgba(204, 204, 204, 0.61);
+		box-shadow: 1px 1px 5px 0px rgba(204, 204, 204, 0.61);
+	}
+}
+
+@import './cards/listing';

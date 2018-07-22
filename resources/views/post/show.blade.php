@@ -5,15 +5,17 @@
 @endsection
 
 @section('content')
-	<article class="card card-article">
-		<header>
-			<h1>{{ $post->title }}</h1>
-		</header>
+	<article class="article article-{{ $post->slug }} article-{{ $post->id }}">
+		<div class="container">
+			<header>
+				<h1>{{ $post->title }}</h1>
+			</header>
 
-		{{ $post->content }}
+			{!! $post->content !!}
 
-		<footer>
-			
-		</footer>
+			<footer>
+				
+			</footer>
+		</div>
 	</article>
 @endsection

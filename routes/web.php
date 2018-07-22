@@ -17,16 +17,14 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::group(['prefix' => '/'], function() {
-	Route::get('/', function() {
-	    echo 'Index';
-	});
+	Route::get('/', 'IndexController@index')->name('home');
 	Route::resource('post', 'Post\PostController', ['only' => ['index', 'show']]);
 	Route::resource('category', 'Post\CategoryController', ['only' => ['index', 'show']]);
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-	Route::get('/', 'Admin\DashboardController@index');
-	Route::get('/posts', 'Post\PostController@adminIndex')->name('admin.index');
+	Route::get('/', 'Admin\DashboardController@index')->name('admin.index');
+	Route::get('/posts', 'Post\PostController@adminIndex')->name('admin.posts');
 	Route::resource('post', 'Post\PostController', ['except' => ['index', 'show']]);
 	Route::resource('category', 'Post\CategoryController', ['except' => ['index', 'show']]);
 });

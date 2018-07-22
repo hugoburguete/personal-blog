@@ -1,7 +1,11 @@
 @extends('layout')
 
 @section('content')
-	@foreach ($posts as $post)
-		@include('post.listing.article', ['post' => $post])
-	@endforeach
+	@forelse ($posts as $post)
+		<div class="card-listing">
+			@include('post.listing.article', ['post' => $post])
+		</div>
+	@empty
+		@include('post.empty')
+	@endforelse
 @endsection

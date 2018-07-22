@@ -4,13 +4,11 @@
 <div class="container">
     <h1>{{ $category->name }}</h1>
     <div class="row justify-content-center">
-        @if ($posts->isEmpty())
+        @forelse ($posts as $post)
+            @include('post.listing.article', ['post' => $post])
+        @empty
             @include('post.empty')
-        @else
-            @foreach ($posts as $post)
-                @include('post.listing.article', ['post' => $post])
-            @endforeach
-        @endif
+        @endforelse
     </div>
 </div>
 @endsection

@@ -10,13 +10,11 @@
                     <a href="{{ route('post.create') }}">Create new post</a>
                     <a href="{{ route('category.create') }}">Create new category</a>
 
-                    @if ($recentArticles->isEmpty())
+                    @forelse ($recentArticles as $post)
+                        @include('dashboard.post.listing.article', ['post' => $post])
+                    @empty
                         @include('post.empty')
-                    @else
-                        @foreach ($recentArticles as $post)
-                            @include('dashboard.post.listing.article', ['post' => $post])
-                        @endforeach
-                    @endif
+                    @endforelse
                 </div>
             </div>
         </div>

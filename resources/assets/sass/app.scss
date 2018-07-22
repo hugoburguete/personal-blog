@@ -1,5 +1,5 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans');
 
 // Variables
 @import "variables";
@@ -9,3 +9,12 @@
 @import "site/reset";
 @import "site/base";
 @import "site/theme";
+
+// Widgets
+@import "components/card";
+@import "components/form";
+
+// Pages
+@import "pages/posts/post";
+@import "pages/posts/create";
+
