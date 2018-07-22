@@ -88,9 +88,12 @@ try {
 	__webpack_require__(12);
 } catch (e) {}
 
-$('.article-carousel').slick({
+$('.carousel-articles').slick({
 	infinite: true,
-	slidesToShow: 1
+	slidesToShow: 1,
+	dots: true,
+	autoplay: true,
+	autoplaySpeed: 4000
 });
 
 /***/ }),

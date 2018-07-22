@@ -42,4 +42,16 @@ class PostRepository extends Repository
     		->limit($count)
     		->get();
     }
+
+    /**
+     * Retries the top/featured articles
+     *
+     * @param  integer $count The number of articles to return
+     * @return Collection
+     */
+    public function getFeatured($count = 3)
+    {
+        // for now, lets just return the most recent articles
+        return $this->getRecent($count);
+    }
 }

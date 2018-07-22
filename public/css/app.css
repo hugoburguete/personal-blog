@@ -267,6 +267,73 @@ body {
   padding: 20px;
 }
 
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -20px;
+}
+
+.row .col-1 {
+  width: 8.33333333%;
+  padding: 0 20px 20px;
+}
+
+.row .col-2 {
+  width: 16.66666667%;
+  padding: 0 20px 20px;
+}
+
+.row .col-3 {
+  width: 25%;
+  padding: 0 20px 20px;
+}
+
+.row .col-4 {
+  width: 33.33333333%;
+  padding: 0 20px 20px;
+}
+
+.row .col-5 {
+  width: 41.66666667%;
+  padding: 0 20px 20px;
+}
+
+.row .col-6 {
+  width: 50%;
+  padding: 0 20px 20px;
+}
+
+.row .col-7 {
+  width: 58.33333333%;
+  padding: 0 20px 20px;
+}
+
+.row .col-8 {
+  width: 66.66666667%;
+  padding: 0 20px 20px;
+}
+
+.row .col-9 {
+  width: 75%;
+  padding: 0 20px 20px;
+}
+
+.row .col-10 {
+  width: 83.33333333%;
+  padding: 0 20px 20px;
+}
+
+.row .col-11 {
+  width: 91.66666667%;
+  padding: 0 20px 20px;
+}
+
+.row .col-12 {
+  width: 100%;
+  padding: 0 20px 20px;
+}
+
 #main-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -371,6 +438,71 @@ p {
   border: 1px solid #CCC;
   width: 100%;
   padding: 5px 10px;
+}
+
+.index-page .carousel-articles-container {
+  background: #0288D1;
+}
+
+.index-page .carousel-articles-container .slick-dots {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+
+.index-page .carousel-articles-container .slick-dots li {
+  margin-left: 5px;
+}
+
+.index-page .carousel-articles-container .slick-dots button {
+  width: 15px;
+  height: 15px;
+  border: 2px solid blue;
+  border-radius: 50%;
+  padding: 0;
+  color: transparent;
+  background: none;
+}
+
+.index-page .carousel-articles-container .slick-dots .slick-active button {
+  background: red;
+}
+
+.index-page .carousel-articles-container .slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+}
+
+.index-page .carousel-articles-container .slick-next {
+  right: 0;
+}
+
+.index-page .carousel-article {
+  position: relative;
+}
+
+.index-page .carousel-article .thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.index-page .carousel-article .legend {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  -webkit-transition: bottom 0.5s;
+  transition: bottom 0.5s;
+  padding: 20px;
+}
+
+.index-page .carousel-article:hover .legend {
+  bottom: 0;
 }
 
 .article header {

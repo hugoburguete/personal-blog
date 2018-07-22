@@ -5,7 +5,10 @@ try {
 	require('slick-carousel');
 } catch (e) {}
 
-$('.article-carousel').slick({
+$('.carousel-articles').slick({
 	infinite: true,
-	slidesToShow: 1
+	slidesToShow: 1,
+	dots: true,
+	autoplay: true,
+	autoplaySpeed: 4000,
 });

@@ -24,12 +24,23 @@ class IndexController extends Controller
         $this->postRepository = $postRepository;
     }
 
+    /**
+     * The homepage
+     */
     public function index()
     {
         $pageSlug = 'index-page';
         $posts = $this->postRepository
             ->include('categories')
             ->all();
-        return $this->reply('index.index', ['posts' => $posts, 'pageSlug' => $pageSlug]);
+        $featuredArticles = $this->postRepository
+            ->include('categories')
+            ->getFeatured();
+
+        return $this->reply('index.index', [
+            'posts' => $posts, 
+            'pageSlug' => $pageSlug,
+            'featured' => $featuredArticles,
+        ]);
     }
 }
