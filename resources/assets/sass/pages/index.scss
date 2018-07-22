@@ -1,6 +1,7 @@
 .index-page {
 	.carousel-articles-container {
 		background: $main-color;
+		margin-bottom: 20px;
 
 		.slick-dots {
 			position: absolute;
@@ -57,6 +58,34 @@
 
 		&:hover .legend {
 			bottom: 0;
+		}
+	}
+
+	.featured-article {
+		.card {
+			padding: 0;
+			margin-bottom: 20px;
+			height: 115px;
+		}
+		.card-header {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+		.card-body p {
+			margin-bottom: 0;
+		}
+		.categories {
+			margin-bottom: 0;
+		}
+		h2 {
+			font-size: 1.25em;
+			line-height: 1em;
+			margin-bottom: 0.25em;
+			font-weight: 700;
+		}
+
+		img {
+			display: none;
 		}
 	}
 }

@@ -21,7 +21,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('post.store') }}" method="post">
+        <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
             @include(
                     'components.forms.text_input', 
                     [
@@ -75,6 +75,11 @@
                             ]
                     )
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="thumbnail">Featured image</label>
+                <input type="file" id="thumbnail" name="thumbnail" accept="image/png, image/jpeg" />
             </div>
 
             {{ csrf_field() }}

@@ -76,7 +76,13 @@ p {
 	@include p;
 }
 
-// Widgets
-.section-heading {
-	background-color: $main-color;
+// --Footer
+#page-footer {
+	background: $main-color;
+	text-align: center;
+	padding: 20px;
+
+	p {
+		margin-bottom: 20px;
+	}
 }

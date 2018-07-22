@@ -38,7 +38,10 @@
 					<h2>Top articles</h2>
 					@foreach ($featured as $featuredArticle)
 						<div class="featured-article">
-							<h1>{{ $featuredArticle->title }}</h1>
+							@include('post.listing.article', [
+								'post' => $featuredArticle,
+									'columnClass' => 'col-12',
+								])
 						</div>
 					@endforeach
 				</div>
@@ -46,11 +49,13 @@
 		</div>
 	</div>
 
-	@forelse ($otherArticles as $post)
-		<div class="card-listing">
-			@include('post.listing.article', ['post' => $post])
+	<div class="container">
+		<div class="card-listing row">
+			@forelse ($otherArticles as $post)
+				@include('post.listing.article', ['post' => $post])
+			@empty
+				@include('post.empty')
+			@endforelse
 		</div>
-	@empty
-		@include('post.empty')
-	@endforelse
+	</div>
 @endsection
