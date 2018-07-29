@@ -1,5 +1,33 @@
 .article {
+	.container {
+		max-width: $post-container-max-width;
+	}
+
+	.thumbnail-container {
+		@include container();
+
+		img {
+			margin: 0 auto;
+		}
+	}
+
 	header {
 		text-align: center;
+
+		h1 {
+			font-size: 2.5em;
+			margin-bottom: 0;
+		}
+
+		.short-description {
+			margin-left: 2em;
+			margin-bottom: 0px;
+		}
+	}
+
+
+	p {
+		font-size: 1.25em;
+		margin-bottom: 1em;
 	}
 }

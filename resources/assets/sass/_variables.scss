@@ -5,13 +5,19 @@ $main-color: #0288D1;
 $base-secondary-color: blue;
 
 // Typography
-$base-font-family: "Fira Sans", sans-serif;
-$heading-font-family: "Fira Sans", sans-serif;
+$base-font-family: "Open Sans", sans-serif;
+$heading-font-family: "Open Sans", sans-serif;
 $logo-font-family: "Play", sans-serif;
 $logo-font-size: 60px;
 $base-font-size: 1em;
 $base-line-height: 1.6em;
 $base-text-spacing: 0.5em; // Used for magin bottom of typography
+$heading-color: $base-color;
+$paragraph-color: rgba(0, 0, 0, 0.8);
 
 // Body
 $body-bg: $base-color-light;
+
+// Breakpoints
+$container-max-width: 1280px;
+$post-container-max-width: $container-max-width * (2 / 3);

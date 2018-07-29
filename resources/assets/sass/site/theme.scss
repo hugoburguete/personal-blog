@@ -2,24 +2,27 @@
 @mixin heading-1() {
 	font-family: $heading-font-family;
 	font-size: $base-font-size * 2;
+	font-weight: 600;
 	line-height: $base-line-height * 1.25;
 	margin-bottom: $base-text-spacing;
-	color: $base-color;
+	color: $heading-color;
 }
 @mixin heading-2() {
 	font-family: $heading-font-family;
 	font-size: $base-font-size * 1.75;
+	font-weight: 600;
 	line-height: $base-line-height * 1.25;
 	margin-bottom: $base-text-spacing;
-	color: $base-color;
+	color: $heading-color;
 }
 
 @mixin p() {
 	font-family: $base-font-family;
 	font-size: $base-font-size;
+	font-weight: 300;
 	line-height: $base-line-height;
 	margin-bottom: $base-text-spacing;
-	color: $base-color;
+	color: $paragraph-color;
 }
 
 // - Base theme
@@ -74,6 +77,10 @@ h2 {
 
 p {
 	@include p;
+}
+
+i {
+	font-style: italic;
 }
 
 // --Footer

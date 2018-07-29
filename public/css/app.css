@@ -106,6 +106,12 @@
   text-align: center;
 }
 
+.responsive-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -244,7 +250,7 @@ table {
 }
 
 * {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -372,16 +378,18 @@ body {
 }
 
 h1 {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 2em;
+  font-weight: 600;
   line-height: 2em;
   margin-bottom: 0.5em;
   color: #242424;
 }
 
 h2 {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.75em;
+  font-weight: 600;
   line-height: 2em;
   margin-bottom: 0.5em;
   color: #242424;
@@ -393,11 +401,16 @@ h2 a {
 }
 
 p {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
+  font-weight: 300;
   line-height: 1.6em;
   margin-bottom: 0.5em;
-  color: #242424;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+i {
+  font-style: italic;
 }
 
 #page-footer {
@@ -553,8 +566,38 @@ p {
   display: none;
 }
 
+.article .container {
+  max-width: 853.33333333px;
+}
+
+.article .thumbnail-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.article .thumbnail-container img {
+  margin: 0 auto;
+}
+
 .article header {
   text-align: center;
+}
+
+.article header h1 {
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+
+.article header .short-description {
+  margin-left: 2em;
+  margin-bottom: 0px;
+}
+
+.article p {
+  font-size: 1.25em;
+  margin-bottom: 1em;
 }
 
 .category-container {
