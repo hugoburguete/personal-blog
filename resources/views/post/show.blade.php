@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="thumbnail-container">
-			<img class="responsive-img" src="https://placehold.it/1280x500" alt="">
+			@include('components.image', ['src' => '/img/php/php-1280x500.jpg'])
 		</div>
 
 		<div class="container">

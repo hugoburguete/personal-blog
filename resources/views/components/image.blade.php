@@ -1,0 +1,1 @@
+<img class="responsive-img" src="{{ $src }}" alt="">
