@@ -10459,6 +10459,29 @@ try {
 	__webpack_require__(7);
 } catch (e) {}
 
+// Header Fading
+$(document).ready(function ($) {
+	var scroll = $(window).scrollTop();
+	doHeaderAnimation(scroll);
+});
+$(window).on('scroll', function (event) {
+	var scroll = $(this).scrollTop();
+	doHeaderAnimation(scroll);
+});
+
+function doHeaderAnimation(scroll) {
+	if (scroll != 0 && $('body').hasClass('is-scrolled')) {
+		return;
+	}
+
+	if (scroll == 0) {
+		$('body').removeClass('is-scrolled');
+	} else {
+		$('body').addClass('is-scrolled');
+	}
+}
+
+// Homepage carousel
 $('.carousel-articles').slick({
 	infinite: true,
 	slidesToShow: 1,

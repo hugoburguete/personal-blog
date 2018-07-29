@@ -1,3 +1,25 @@
+@mixin container() {
+	width: 100%;
+	max-width: $container-max-width;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.container {
+	@include container();
+}
+
+.row {
+	display: flex;
+	margin: 0 -20px;
+
+	@for $i from 1 through 12 {
+		.col-#{$i} {
+			width: percentage($i/12);
+			padding: 0 20px 20px;
+		}
+	}
+}
 .center {
 	text-align: center;
 }
