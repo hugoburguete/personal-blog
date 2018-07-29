@@ -4,17 +4,26 @@ namespace ProgrammingBlog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use ProgrammingBlog\Http\Controllers\Controller;
+use ProgrammingBlog\Repositories\PostRepository;
 
 class DashboardController extends Controller
 {
+    /**
+     * Posts repository
+     *
+     * @var PostRepository
+     */
+    public $postRepository;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(PostRepository $postRepository)
     {
         $this->middleware('auth');
+        $this->postRepository = $postRepository;
     }
 
     /**
@@ -24,6 +33,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return $this->reply('dashboard.index');
+        $posts = $this->postRepository
+            ->include(['categories'])
+            ->orderBy(['id' => 'desc'])
+            ->all();
+
+        return $this->reply('dashboard.post.index', ['posts' => $posts]);
     }
 }

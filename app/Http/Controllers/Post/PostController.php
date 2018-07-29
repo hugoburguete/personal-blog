@@ -53,21 +53,6 @@ class PostController extends Controller
     }
 
     /**
-     * Display a listing of the resource in the admin area.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function adminIndex()
-    {
-        $posts = $this->postRepository
-            ->include(['categories'])
-            ->orderBy(['id' => 'desc'])
-            ->all();
-
-        return $this->reply('dashboard.post.index', ['posts' => $posts]);
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -115,7 +100,7 @@ class PostController extends Controller
         }
    
         $request->session()->flash('status', __('resource.status', ['resource' => 'post', 'status' => 'saved']));
-        return $this->adminIndex();
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -183,7 +168,7 @@ class PostController extends Controller
         $post->categories()->attach($request->input('categoryId'));
         $post->save();
 
-        return $this->adminIndex();
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -196,6 +181,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return $this->adminIndex();
+        return redirect()->route('admin.index');
     }
 }

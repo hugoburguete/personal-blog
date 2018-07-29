@@ -24,7 +24,6 @@ Route::group(['prefix' => '/'], function() {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('/', 'Admin\DashboardController@index')->name('admin.index');
-	Route::get('/posts', 'Post\PostController@adminIndex')->name('admin.posts');
 	Route::resource('post', 'Post\PostController', ['except' => ['index', 'show']]);
 	Route::resource('category', 'Post\CategoryController', ['except' => ['index', 'show']]);
 });
