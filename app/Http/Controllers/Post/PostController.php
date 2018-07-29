@@ -8,6 +8,7 @@ use ProgrammingBlog\Models\Post;
 use ProgrammingBlog\Models\Category;
 use ProgrammingBlog\Repositories\CategoryRepository;
 use ProgrammingBlog\Repositories\PostRepository;
+use ProgrammingBlog\Services\ImageService\ImageServiceInterface;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -29,12 +30,21 @@ class PostController extends Controller
     private $categoryRepository;
 
     /**
+     * Image Service
+     *
+     * @var ImageServiceInterface
+     */
+    private $imageService;
+
+    /**
      * Constructor
      */
-    public function __construct(PostRepository $repo, CategoryRepository $categoryRepository)
+    public function __construct(PostRepository $repo, CategoryRepository $categoryRepository, 
+        ImageServiceInterface $imageService)
     {
         $this->postRepository = $repo;
         $this->categoryRepository = $categoryRepository;
+        $this->imageService = $imageService;
     }
 
     /**
@@ -76,17 +86,8 @@ class PostController extends Controller
         $post = new Post($request->all());
 
         // Store image
-        // TODO: Image resizing - there's a cool library here: https://github.com/gumlet/php-image-resize. Give that
-        // a shot.
         $thumbnail = $request->file('thumbnail');
-        if (!empty($thumbnail)) {
-            $extension = $thumbnail->extension();
-            $path = $thumbnail->storeAs(
-                'public/thumbnails', 'thumbnail-' . $post->id . '.' .$extension
-            );
-
-            $post->thumbanil_url = $path;
-        }
+        $this->imageService->store($thumbnail);
 
         $post->save();
 

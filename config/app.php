@@ -160,6 +160,7 @@ return [
         ProgrammingBlog\Providers\EventServiceProvider::class,
         ProgrammingBlog\Providers\RouteServiceProvider::class,
         ProgrammingBlog\Providers\RepositoryServiceProvider::class,
+        ProgrammingBlog\Providers\ImageServiceProvider::class,
 
     ],
 
