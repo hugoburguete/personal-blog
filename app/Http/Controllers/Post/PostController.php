@@ -85,7 +85,7 @@ class PostController extends Controller
                 'public/thumbnails', 'thumbnail-' . $post->id . '.' .$extension
             );
 
-            $post->thumbanil_url = $path;
+            $post->thumbnail_url = $path;
         }
 
         $post->save();
