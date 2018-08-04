@@ -20,9 +20,14 @@
 						@foreach ($carouselArticles as $post)
 							<div class="carousel-article">
 								<a href="{{ route('post.show', $post->slug) }}">
-									<img class="thumbnail" 
-										src="https://placehold.it/900x500" 
-										alt="Slider image for {{ $post->title }}">
+									@include(
+										'components.image', 
+										[
+											'post' => $post,
+											'alt' => 'Slider image for ' . $post->title,
+											'size' => '900x500',
+										]
+									)
 									<div class="legend">
 										<h1 class="title">{{ $post->title }}</h1>
 										<div class="description">

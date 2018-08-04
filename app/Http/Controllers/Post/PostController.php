@@ -78,15 +78,15 @@ class PostController extends Controller
         // Store image
         // TODO: Image resizing - there's a cool library here: https://github.com/gumlet/php-image-resize. Give that
         // a shot.
-        $thumbnail = $request->file('thumbnail');
-        if (!empty($thumbnail)) {
-            $extension = $thumbnail->extension();
-            $path = $thumbnail->storeAs(
-                'public/thumbnails', 'thumbnail-' . $post->id . '.' .$extension
-            );
+        // $thumbnail = $request->file('thumbnail');
+        // if (!empty($thumbnail)) {
+        //     $extension = $thumbnail->extension();
+        //     $path = $thumbnail->storeAs(
+        //         'public/thumbnails', 'thumbnail-' . $post->id . '.' .$extension
+        //     );
 
-            $post->thumbnail_url = $path;
-        }
+        //     $post->thumbnail_url = $path;
+        // }
 
         $post->save();
 
