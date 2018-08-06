@@ -53,7 +53,7 @@ class RepositoryServiceProvider extends ServiceProvider
      * @param  string $base       
      * @return void
      */
-    public function loadClasses($filesArray, $base = 'ProgrammingBlog\Repositories\\')
+    public function loadClasses(array $filesArray, string $base = 'ProgrammingBlog\Repositories\\')
     {
         foreach ($filesArray as $key => $location) {
             if (is_array($location)) {
