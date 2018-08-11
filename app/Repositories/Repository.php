@@ -44,6 +44,10 @@ abstract class Repository implements RepositoryInterface
      */
     protected $sorts = [];
 
+    protected $limit = 0;
+
+    protected $perPage = 0;
+
     /**
      * Constructor
      *
@@ -70,14 +74,21 @@ abstract class Repository implements RepositoryInterface
     protected function getModel()
     {
         $model = $this->model;
+
         if (!empty($this->relationships)) {
             $model = $model->with($this->relationships);
         }
+        
         if (!empty($this->sorts)) {
             foreach ($this->sorts as $sort => $direction) {
                 $model->orderBy($sort, $direction);
             }
         }
+
+        if ($this->limit > 0) {
+            $model->take($this->limit);
+        }
+
         return $model;
     }
 
@@ -89,6 +100,10 @@ abstract class Repository implements RepositoryInterface
      */
     public function all($columns = array('*'))
     {
+        if ($this->perPage > 0) {
+            return $this->getModel()
+                ->paginate($this->perPage);
+        }
         return $this->getModel()->get($columns);
     }
 
@@ -113,6 +128,10 @@ abstract class Repository implements RepositoryInterface
             }
 
             $queryBuilder = $queryBuilder->whereIn($column, $condition);
+        }
+
+        if ($this->perPage > 0) {
+            return $queryBuilder->paginate($this->perPage);
         }
 
         return $queryBuilder->get();
@@ -183,6 +202,30 @@ abstract class Repository implements RepositoryInterface
         }
 
         $this->relationships = array_merge($this->relationships, $relationship);
+        return $this;
+    }
+
+    /**
+     * Paginates the resource
+     * 
+     * @param  int|integer $perPage The amount of items to paginate
+     * @return Repository
+     */
+    public function paginate(int $perPage = 10) : Repository
+    {
+        $this->perPage = $perPage;
+        return $this;
+    }
+
+    /**
+     * Limits the result
+     *
+     * @param  int|integer $limit The limit
+     * @return Repository
+     */
+    public function limit($limit) : Repository
+    {
+        $this->limit = $limit;
         return $this;
     }
 

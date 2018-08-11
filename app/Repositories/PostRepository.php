@@ -38,8 +38,9 @@ class PostRepository extends Repository
      */
     public function getRecent($count = 3)
     {
-    	return $this->getModel()->latest()
-    		->limit($count)
+    	return $this->getModel()
+            ->latest()
+    		->take($count)
     		->get();
     }
 

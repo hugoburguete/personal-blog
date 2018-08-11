@@ -69,7 +69,7 @@ class CategoryController extends Controller
     public function show($categoryId)
     {
         $category = $this->categoryRepository->get($categoryId);
-        $posts = $category->posts;
+        $posts = $category->posts()->paginate(9);
 
         return $this->reply('category.show', [
                 'posts'    => $posts, 

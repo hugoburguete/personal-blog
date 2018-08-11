@@ -32,7 +32,9 @@ class IndexController extends Controller
         $pageSlug = 'index-page';
         $posts = $this->postRepository
             ->include('categories')
+            ->limit(10)
             ->all();
+
         $featuredArticles = $this->postRepository
             ->include('categories')
             ->getFeatured();
