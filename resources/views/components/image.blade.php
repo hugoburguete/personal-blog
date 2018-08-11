@@ -9,7 +9,7 @@ category image --}}
 @endphp
 
 @if (!$filteredCategories->isEmpty())
-	<img class="responsive-img" src="/img/php/php-{{ $size }}.jpg" alt="{{ $alt ?? '' }}">
+	<img class="responsive-img" src="/img/php/php-{{ $size }}.jpg" alt="{{ $alt ?? $post->title }}">
 @else
-	<img class="responsive-img" src="https://placehold.it/{{ $size }}.jpg" alt="{{ $alt ?? '' }}">
+	<img class="responsive-img" src="https://placehold.it/{{ $size }}.jpg" alt="{{ $alt ?? $post->title }}">
 @endif

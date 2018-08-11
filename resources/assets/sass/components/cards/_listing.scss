@@ -5,11 +5,12 @@
 .card-listing-item {
 	padding: 10px;
 
-	h2 {
-		
+	h4 {
+		margin-bottom: 5px;
+		line-height: 1em;
 	}
 
-	.categories {
-
+	.date {
+		color: rgba(0, 0, 0, 0.5);
 	}
 }

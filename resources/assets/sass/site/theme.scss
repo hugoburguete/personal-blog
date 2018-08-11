@@ -1,19 +1,30 @@
 // Mixin helpers
-@mixin heading-1() {
+@mixin base-font-style() {
 	font-family: $heading-font-family;
-	font-size: $base-font-size * 2;
-	font-weight: 600;
-	line-height: $base-line-height * 1.25;
 	margin-bottom: $base-text-spacing;
+}
+@mixin base-heading() {
+	@include base-font-style();
+	font-weight: 600;
 	color: $heading-color;
 }
-@mixin heading-2() {
-	font-family: $heading-font-family;
-	font-size: $base-font-size * 1.75;
-	font-weight: 600;
+@mixin heading-1() {
+	@include base-heading();
+	font-size: $base-font-size * 2;
 	line-height: $base-line-height * 1.25;
-	margin-bottom: $base-text-spacing;
-	color: $heading-color;
+}
+@mixin heading-2() {
+	@include base-heading();
+	font-size: $base-font-size * 1.75;
+	line-height: $base-line-height * 1.25;
+}
+
+// Reserving h3
+
+@mixin heading-4() {
+	@include base-heading();
+	font-size: $base-font-size * 1.5;
+	line-height: $base-line-height * 1.2;
 }
 
 @mixin p() {
@@ -47,73 +58,6 @@ body {
 	margin-top: 165px;
 }
 
-// -- Header
-#main-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	display: flex;
-	background: $main-color;
-	text-align: center;
-	
-	* {
-		transition: all 0.5s;
-	}
-
-	a {
-		display: block;
-		margin: 0 auto;
-		color: #FFF;
-		font-family: $logo-font-family;
-		font-size: $logo-font-size;
-	}
-
-	span {
-		float: left;
-		margin-top: 45px;
-
-		&.logo-prefix {
-			margin-right: -25px;
-		}
-		&.logo-suffix {
-			margin-left: -25px;
-			margin-top: 50px;
-		}
-	}
-
-	.avatar {
-		width: 150px;
-		border-radius: 50%;
-		margin: 30px auto;
-		display: block;
-	}
-}
-
-.is-scrolled #main-header {
-	a {
-		font-size: 30px;
-	}
-
-	span {
-		margin-top: 25px;
-	}
-
-	span.logo-prefix {
-		margin-right: -15px;
-	}
-
-	span.logo-suffix {
-		margin-left: -15px;
-		margin-top: 30px;
-	}
-
-	.avatar {
-		margin: 10px auto;
-		width: 100px;
-	}
-}
-
 // -- Typography
 h1 {
 	@include heading-1();
@@ -124,12 +68,27 @@ h2 {
 
 	a {
 		color: $base-color;
-		text-decoration: none;
+	}
+}
+
+h4 {
+	@include heading-4;
+
+	a {
+		color: $base-color;
 	}
 }
 
 p {
 	@include p;
+}
+
+small {
+	font-size: 0.8em;
+}
+
+a {
+	text-decoration: none;
 }
 
 i {
