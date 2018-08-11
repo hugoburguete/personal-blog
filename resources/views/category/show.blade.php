@@ -9,7 +9,7 @@
         @empty
             @include('post.empty')
         @endforelse
-        <?php echo $posts->links(); ?>
     </div>
+    <?php echo $posts->links(); ?>
 </div>
 @endsection

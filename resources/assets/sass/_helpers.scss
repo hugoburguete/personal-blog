@@ -11,6 +11,7 @@
 
 .row {
 	display: flex;
+	flex-wrap: wrap;
 	margin: 0 -20px;
 
 	@for $i from 1 through 12 {
