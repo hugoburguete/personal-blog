@@ -54,10 +54,6 @@ body {
 	position: relative;
 }
 
-#app {
-	margin-top: 165px;
-}
-
 // -- Typography
 h1 {
 	@include heading-1();

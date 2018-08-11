@@ -1,16 +1,8 @@
 // -- Header
 #main-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
 	display: flex;
 	background: $main-color;
 	text-align: center;
-	
-	* {
-		transition: all 0.5s;
-	}
 
 	a {
 		display: block;
@@ -34,33 +26,38 @@
 	}
 
 	.avatar {
+		display: block;
+		float: left;
 		width: 150px;
 		border-radius: 50%;
 		margin: 30px auto;
-		display: block;
+	}
+
+	.sticky-area {
+		position: fixed;
+		top: -100px;
+		left: 0;
+		right: 0;
+		transition: all 0.5s;
+		z-index: 100;
+		background: $main-color;
+		font-size: 40px;
+
+		span {
+			margin-top: 20px;
+			margin-right: 0;
+			margin-left: 0;
+		}
+
+		.avatar {
+			margin: 10px auto;
+			width: 100px;
+		}
 	}
 }
 
 .is-scrolled #main-header {
-	a {
-		font-size: 30px;
-	}
-
-	span {
-		margin-top: 25px;
-	}
-
-	span.logo-prefix {
-		margin-right: -15px;
-	}
-
-	span.logo-suffix {
-		margin-left: -15px;
-		margin-top: 30px;
-	}
-
-	.avatar {
-		margin: 10px auto;
-		width: 100px;
+	.sticky-area {
+		top: 0;
 	}
 }

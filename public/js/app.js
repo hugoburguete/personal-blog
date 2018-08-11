@@ -10439,7 +10439,7 @@ return jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(8);
+module.exports = __webpack_require__(9);
 
 
 /***/ }),
@@ -10447,6 +10447,7 @@ module.exports = __webpack_require__(8);
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(3);
+__webpack_require__(8);
 
 /***/ }),
 /* 3 */
@@ -10455,40 +10456,9 @@ __webpack_require__(3);
 window._ = __webpack_require__(4);
 
 try {
-	window.$ = window.jQuery = __webpack_require__(0);
-	__webpack_require__(7);
+    window.$ = window.jQuery = __webpack_require__(0);
+    __webpack_require__(7);
 } catch (e) {}
-
-// Header Fading
-$(document).ready(function ($) {
-	var scroll = $(window).scrollTop();
-	doHeaderAnimation(scroll);
-});
-$(window).on('scroll', function (event) {
-	var scroll = $(this).scrollTop();
-	doHeaderAnimation(scroll);
-});
-
-function doHeaderAnimation(scroll) {
-	if (scroll != 0 && $('body').hasClass('is-scrolled')) {
-		return;
-	}
-
-	if (scroll == 0) {
-		$('body').removeClass('is-scrolled');
-	} else {
-		$('body').addClass('is-scrolled');
-	}
-}
-
-// Homepage carousel
-$('.carousel-articles').slick({
-	infinite: true,
-	slidesToShow: 1,
-	dots: true,
-	autoplay: true,
-	autoplaySpeed: 4000
-});
 
 /***/ }),
 /* 4 */
@@ -30680,6 +30650,42 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+// Header Fading
+$(document).ready(function ($) {
+	var scroll = $(window).scrollTop();
+	doHeaderAnimation(scroll);
+});
+$(window).on('scroll', function (event) {
+	var scroll = $(this).scrollTop();
+	doHeaderAnimation(scroll);
+});
+
+function doHeaderAnimation(scroll) {
+	var scrollOffset = 165;
+	if (scroll > scrollOffset && $('body').hasClass('is-scrolled')) {
+		return;
+	}
+
+	if (scroll <= scrollOffset) {
+		$('body').removeClass('is-scrolled');
+	} else {
+		$('body').addClass('is-scrolled');
+	}
+}
+
+// Homepage carousel
+$('.carousel-articles').slick({
+	infinite: true,
+	slidesToShow: 1,
+	dots: true,
+	autoplay: true,
+	autoplaySpeed: 4000
+});
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

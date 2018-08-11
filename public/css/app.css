@@ -342,10 +342,6 @@ body {
   position: relative;
 }
 
-#app {
-  margin-top: 165px;
-}
-
 h1 {
   font-family: "Open Sans", sans-serif;
   margin-bottom: 0.5em;
@@ -413,20 +409,11 @@ i {
 }
 
 #main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background: #0288D1;
   text-align: center;
-}
-
-#main-header * {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 #main-header a {
@@ -452,32 +439,38 @@ i {
 }
 
 #main-header .avatar {
+  display: block;
+  float: left;
   width: 150px;
   border-radius: 50%;
   margin: 30px auto;
-  display: block;
 }
 
-.is-scrolled #main-header a {
-  font-size: 30px;
+#main-header .sticky-area {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  right: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 100;
+  background: #0288D1;
+  font-size: 40px;
 }
 
-.is-scrolled #main-header span {
-  margin-top: 25px;
+#main-header .sticky-area span {
+  margin-top: 20px;
+  margin-right: 0;
+  margin-left: 0;
 }
 
-.is-scrolled #main-header span.logo-prefix {
-  margin-right: -15px;
-}
-
-.is-scrolled #main-header span.logo-suffix {
-  margin-left: -15px;
-  margin-top: 30px;
-}
-
-.is-scrolled #main-header .avatar {
+#main-header .sticky-area .avatar {
   margin: 10px auto;
   width: 100px;
+}
+
+.is-scrolled #main-header .sticky-area {
+  top: 0;
 }
 
 .card .card-inner {
