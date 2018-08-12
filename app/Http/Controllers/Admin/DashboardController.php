@@ -36,6 +36,7 @@ class DashboardController extends Controller
         $posts = $this->postRepository
             ->include(['categories'])
             ->orderBy(['id' => 'desc'])
+            ->paginate(10)
             ->all();
 
         return $this->reply('dashboard.post.index', ['posts' => $posts]);
