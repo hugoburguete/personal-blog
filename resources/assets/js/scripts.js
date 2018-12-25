@@ -9,7 +9,7 @@ $(window).on('scroll', function(event) {
 });
 
 function doHeaderAnimation(scroll) {
-	const scrollOffset = 165;
+    const scrollOffset = 63;
 	if (scroll > scrollOffset && $('body').hasClass('is-scrolled')) { return; }
 
 	if (scroll <= scrollOffset) {
@@ -18,12 +18,3 @@ function doHeaderAnimation(scroll) {
 		$('body').addClass('is-scrolled');
 	}
 }
-
-// Homepage carousel
-$('.carousel-articles').slick({
-	infinite: true,
-	slidesToShow: 1,
-	dots: true,
-	autoplay: true,
-	autoplaySpeed: 4000,
-});
