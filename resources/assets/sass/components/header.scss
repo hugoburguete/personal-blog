@@ -1,63 +1,15 @@
 // -- Header
 #main-header {
 	display: flex;
-	background: $main-color;
-	text-align: center;
 
 	a {
-		display: block;
-		margin: 0 auto;
-		color: #FFF;
+        display: block;
+		color: $theme-primary-text-color;
 		font-family: $logo-font-family;
 		font-size: $logo-font-size;
-	}
-
-	span {
-		float: left;
-		margin-top: 45px;
-
-		&.logo-prefix {
-			margin-right: -25px;
-		}
-		&.logo-suffix {
-			margin-left: -25px;
-			margin-top: 50px;
-		}
-	}
-
-	.avatar {
-		display: block;
-		float: left;
-		width: 150px;
-		border-radius: 50%;
-		margin: 30px auto;
-	}
-
-	.sticky-area {
-		position: fixed;
-		top: -100px;
-		left: 0;
-		right: 0;
-		transition: all 0.5s;
-		z-index: 100;
-		background: $main-color;
-		font-size: 40px;
-
-		span {
-			margin-top: 20px;
-			margin-right: 0;
-			margin-left: 0;
-		}
-
-		.avatar {
-			margin: 10px auto;
-			width: 100px;
-		}
 	}
 }
 
 .is-scrolled #main-header {
-	.sticky-area {
-		top: 0;
-	}
+	top: 0;
 }

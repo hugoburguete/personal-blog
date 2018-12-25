@@ -1,23 +1,24 @@
 // Colours
-$base-color: #242424;
-$base-color-light: #f5f8fa;
-$main-color: #0288D1;
-$base-secondary-color: blue;
+$theme-primary-color: #000;
+$theme-secondary-color: #FFF;
+$theme-primary-text-color: #FFF;
+$theme-dimmed-color: #8A8A8A;
+$theme-accent-text-color: #f8ce34;
 
 // Typography
-$base-font-family: "Open Sans", sans-serif;
-$heading-font-family: "Open Sans", sans-serif;
+$base-font-family: "Exo 2", sans-serif;
+$heading-font-family: "Exo 2", sans-serif;
 $logo-font-family: "Play", sans-serif;
-$logo-font-size: 60px;
 $base-font-size: 1em;
 $base-line-height: 1.6em;
 $base-text-spacing: 0.5em; // Used for magin bottom of typography
-$heading-color: $base-color;
-$paragraph-color: rgba(0, 0, 0, 0.8);
+$logo-font-size: $base-font-size * 1.5;
+$heading-color: $theme-primary-text-color;
+$paragraph-color: $theme-primary-text-color;
 
 // Body
-$body-bg: $base-color-light;
+$body-bg: $theme-primary-color;
 
 // Breakpoints
-$container-max-width: 1280px;
+$container-max-width: 1024px;
 $post-container-max-width: $container-max-width * (2 / 3);

@@ -1,0 +1,34 @@
+/*
+ * This is used on listing pages such as homepage and category page.
+ */
+
+.card-listing {
+	display: flex;
+    flex-wrap: wrap;
+}
+.card-listing-item {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    background: #000;
+    border-top: 1px dashed #474747;
+
+    .date {
+        margin-bottom: 0px;
+        line-height: 1em;
+        color: $theme-primary-text-color;
+    }
+
+	h4 {
+		margin-bottom: 5px;
+        line-height: 1em;
+        
+        a {
+            color: $theme-primary-text-color;
+        }
+    }
+
+    .card-body p {
+        color: $theme-dimmed-color;
+    }
+}

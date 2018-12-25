@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato|Open+Sans);/* Slider */
+@import url(https://fonts.googleapis.com/css?family=Exo+2);/* Slider */
 
 .slick-slider {
   position: relative;
@@ -104,7 +104,7 @@
 
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -326,7 +326,7 @@ table {
 }
 
 * {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-size: 1em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -338,52 +338,56 @@ body {
 }
 
 body {
-  background-color: #f5f8fa;
+  background-color: #000;
   position: relative;
 }
 
 h1 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Exo 2", sans-serif;
   margin-bottom: 0.5em;
   font-weight: 600;
-  color: #242424;
+  color: #FFF;
   font-size: 2em;
   line-height: 2em;
 }
 
+h1 a {
+  color: #f8ce34;
+}
+
 h2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Exo 2", sans-serif;
   margin-bottom: 0.5em;
   font-weight: 600;
-  color: #242424;
+  color: #FFF;
   font-size: 1.75em;
   line-height: 2em;
 }
 
 h2 a {
-  color: #242424;
+  color: #f8ce34;
 }
 
 h4 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Exo 2", sans-serif;
   margin-bottom: 0.5em;
   font-weight: 600;
-  color: #242424;
+  color: #FFF;
   font-size: 1.5em;
   line-height: 1.92em;
 }
 
 h4 a {
-  color: #242424;
+  color: #f8ce34;
 }
 
 p {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-size: 1em;
   font-weight: 300;
   line-height: 1.6em;
   margin-bottom: 0.5em;
-  color: rgba(0, 0, 0, 0.8);
+  color: #FFF;
 }
 
 small {
@@ -391,6 +395,7 @@ small {
 }
 
 a {
+  color: #f8ce34;
   text-decoration: none;
 }
 
@@ -420,12 +425,10 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #0288D1;
   color: white;
 }
 
 #page-footer {
-  background: #0288D1;
   text-align: center;
   padding: 20px;
 }
@@ -438,64 +441,16 @@ table th {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #0288D1;
-  text-align: center;
 }
 
 #main-header a {
   display: block;
-  margin: 0 auto;
   color: #FFF;
   font-family: "Play", sans-serif;
-  font-size: 60px;
+  font-size: 1.5em;
 }
 
-#main-header span {
-  float: left;
-  margin-top: 45px;
-}
-
-#main-header span.logo-prefix {
-  margin-right: -25px;
-}
-
-#main-header span.logo-suffix {
-  margin-left: -25px;
-  margin-top: 50px;
-}
-
-#main-header .avatar {
-  display: block;
-  float: left;
-  width: 150px;
-  border-radius: 50%;
-  margin: 30px auto;
-}
-
-#main-header .sticky-area {
-  position: fixed;
-  top: -100px;
-  left: 0;
-  right: 0;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  z-index: 100;
-  background: #0288D1;
-  font-size: 40px;
-}
-
-#main-header .sticky-area span {
-  margin-top: 20px;
-  margin-right: 0;
-  margin-left: 0;
-}
-
-#main-header .sticky-area .avatar {
-  margin: 10px auto;
-  width: 100px;
-}
-
-.is-scrolled #main-header .sticky-area {
+.is-scrolled #main-header {
   top: 0;
 }
 
@@ -509,34 +464,10 @@ table th {
           flex-direction: column;
   text-decoration: none;
   height: 100%;
-  background: #FFF;
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(204, 204, 204, 0.61);
-          box-shadow: 1px 1px 5px 0px rgba(204, 204, 204, 0.61);
 }
 
 .card .card-content {
   padding: 20px;
-}
-
-.card-listing {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.card-listing-item {
-  padding: 10px;
-}
-
-.card-listing-item h4 {
-  margin-bottom: 5px;
-  line-height: 1em;
-}
-
-.card-listing-item .date {
-  color: rgba(0, 0, 0, 0.5);
 }
 
 .form-group {
@@ -552,72 +483,6 @@ table th {
   border: 1px solid #CCC;
   width: 100%;
   padding: 5px 10px;
-}
-
-.index-page .carousel-articles-container {
-  background: #0288D1;
-  margin-bottom: 20px;
-}
-
-.index-page .carousel-articles-container .slick-dots {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 10px;
-}
-
-.index-page .carousel-articles-container .slick-dots li {
-  margin-left: 5px;
-}
-
-.index-page .carousel-articles-container .slick-dots button {
-  width: 15px;
-  height: 15px;
-  border: 2px solid blue;
-  border-radius: 50%;
-  padding: 0;
-  color: transparent;
-  background: none;
-}
-
-.index-page .carousel-articles-container .slick-dots .slick-active button {
-  background: red;
-}
-
-.index-page .carousel-articles-container .slick-arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 10;
-}
-
-.index-page .carousel-articles-container .slick-next {
-  right: 0;
-}
-
-.index-page .carousel-article {
-  position: relative;
-}
-
-.index-page .carousel-article .thumbnail {
-  width: 100%;
-  height: auto;
-}
-
-.index-page .carousel-article .legend {
-  position: absolute;
-  bottom: -50px;
-  left: 0;
-  right: 0;
-  -webkit-transition: bottom 0.5s;
-  transition: bottom 0.5s;
-  padding: 20px;
-}
-
-.index-page .carousel-article:hover .legend {
-  bottom: 0;
 }
 
 .index-page .featured-article .card {
@@ -657,12 +522,12 @@ table th {
 }
 
 .article .container {
-  max-width: 853.33333333px;
+  max-width: 682.66666667px;
 }
 
 .article .thumbnail-container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -707,5 +572,44 @@ table th {
 
 .category-container .form-group {
   margin-bottom: 0;
+}
+
+/*
+ * This is used on listing pages such as homepage and category page.
+ */
+
+.card-listing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card-listing-item {
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  background: #000;
+  border-top: 1px dashed #474747;
+}
+
+.card-listing-item .date {
+  margin-bottom: 0px;
+  line-height: 1em;
+  color: #FFF;
+}
+
+.card-listing-item h4 {
+  margin-bottom: 5px;
+  line-height: 1em;
+}
+
+.card-listing-item h4 a {
+  color: #FFF;
+}
+
+.card-listing-item .card-body p {
+  color: #8A8A8A;
 }
 

@@ -6,7 +6,11 @@
 @mixin base-heading() {
 	@include base-font-style();
 	font-weight: 600;
-	color: $heading-color;
+    color: $heading-color;
+    
+    a {
+        color: $theme-accent-text-color;
+    }
 }
 @mixin heading-1() {
 	@include base-heading();
@@ -61,18 +65,10 @@ h1 {
 
 h2 {
 	@include heading-2();
-
-	a {
-		color: $base-color;
-	}
 }
 
 h4 {
 	@include heading-4;
-
-	a {
-		color: $base-color;
-	}
 }
 
 p {
@@ -84,6 +80,7 @@ small {
 }
 
 a {
+    color: $theme-accent-text-color;
 	text-decoration: none;
 }
 
@@ -111,14 +108,12 @@ table {
 	    padding-top: 12px;
 	    padding-bottom: 12px;
 	    text-align: left;
-	    background-color: $main-color;
 	    color: white;
 	}
 }
 
 // --Footer
 #page-footer {
-	background: $main-color;
 	text-align: center;
 	padding: 20px;
 
