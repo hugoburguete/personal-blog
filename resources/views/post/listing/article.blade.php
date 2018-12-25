@@ -4,13 +4,11 @@
             <div class="card-header">
                 <p class="categories">
                     <small>
-                        <?php $i = 0; ?>
                         @foreach ($post->categories as $category)
-                            <?php $i++ ?>
                             <a href="{{ route('category.show', ['category' => $category->slug]) }}">
                                 {{ $category->name }}
                             </a>
-                            @if ($i !== $post->categories->count())
+                            @if ($category !== $post->categories->last())
                                 <span class="separator">, </span>
                             @endif
                         @endforeach
