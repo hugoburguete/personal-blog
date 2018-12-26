@@ -1,7 +1,20 @@
 // -- Header
 #main-header {
     display: flex;
+    justify-content: space-between;
     
+	a {
+        display: block;
+		color: $theme-primary-text-color;
+		font-family: $logo-font-family;
+		font-size: $logo-font-size;
+    }
+
+    #main-header-logo {
+        width: 20%;
+        margin-top: 4px;
+    }
+
     #main-header-logo span {
         visibility: hidden;
 
@@ -22,16 +35,15 @@
             }
         }
     }
-
-	a {
-        display: block;
-		color: $theme-primary-text-color;
-		font-family: $logo-font-family;
-		font-size: $logo-font-size;
-    }
     
-    .contact-details {
+    #main-header-contact-details {
+        width: 20%;
+        text-align: right;
 
+        .icon-mail {
+            color: $theme-primary-text-color;
+            font-size: 30px;
+        }
     }
 }
 

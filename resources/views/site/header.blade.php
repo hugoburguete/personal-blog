@@ -5,8 +5,11 @@
         </p>
 
         <div id="main-header-contact-details">
+            
             @if (!empty(config('contact.email')))
-                <p><a href="mailto:{{ config('contact.email') }}">Contact me</a></p>
+                <a href="mailto:{{ config('contact.email') }}">
+                    <i class="demo-icon icon-mail"></i>
+                </a>
             @endif
         </div>
     </div>
