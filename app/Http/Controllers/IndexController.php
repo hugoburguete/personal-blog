@@ -32,6 +32,7 @@ class IndexController extends Controller
         $pageSlug = 'index-page';
         $posts = $this->postRepository
             ->include('categories')
+            ->orderBy(['created_at' => 'DESC'])
             ->limit(10)
             ->all();
 
