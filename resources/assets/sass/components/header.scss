@@ -1,15 +1,51 @@
 // -- Header
 #main-header {
-	display: flex;
+    display: flex;
+    
+    #main-header-logo span {
+        visibility: hidden;
+
+        &.visible {
+            visibility: visible;
+            position: relative;
+
+            &:last-of-type:after {
+                content: ' ';
+                background: #FFF;
+                width: 2px;
+                height: 20px;
+                position: absolute;
+                left: 120%;
+                top: 6px;
+                animation: blink-animation 1s steps(2, start) infinite;
+                -webkit-animation: blink-animation 1s steps(2, start) infinite;
+            }
+        }
+    }
 
 	a {
         display: block;
 		color: $theme-primary-text-color;
 		font-family: $logo-font-family;
 		font-size: $logo-font-size;
-	}
+    }
+    
+    .contact-details {
+
+    }
 }
 
 .is-scrolled #main-header {
 	top: 0;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
 }

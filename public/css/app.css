@@ -244,7 +244,7 @@ h1 {
   font-weight: 600;
   color: #FFF;
   font-size: 2em;
-  line-height: 2em;
+  line-height: 1.6em;
 }
 
 h1 a {
@@ -339,6 +339,27 @@ table th {
   display: flex;
 }
 
+#main-header #main-header-logo span {
+  visibility: hidden;
+}
+
+#main-header #main-header-logo span.visible {
+  visibility: visible;
+  position: relative;
+}
+
+#main-header #main-header-logo span.visible:last-of-type:after {
+  content: ' ';
+  background: #FFF;
+  width: 2px;
+  height: 20px;
+  position: absolute;
+  left: 120%;
+  top: 6px;
+  animation: blink-animation 1s steps(2, start) infinite;
+  -webkit-animation: blink-animation 1s steps(2, start) infinite;
+}
+
 #main-header a {
   display: block;
   color: #FFF;
@@ -348,6 +369,18 @@ table th {
 
 .is-scrolled #main-header {
   top: 0;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }
 
 .card .card-inner {

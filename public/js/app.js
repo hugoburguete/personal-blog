@@ -27634,28 +27634,85 @@ module.exports = function(module) {
 /* 8 */
 /***/ (function(module, exports) {
 
-// Header Fading
-$(document).ready(function ($) {
-	var scroll = $(window).scrollTop();
-	doHeaderAnimation(scroll);
-});
-$(window).on('scroll', function (event) {
-	var scroll = $(this).scrollTop();
-	doHeaderAnimation(scroll);
-});
+(function ($) {
+    $(document).ready(function ($) {
+        // Sticky header
+        var scroll = $(window).scrollTop();
+        doHeaderAnimation(scroll);
 
-function doHeaderAnimation(scroll) {
-	var scrollOffset = 63;
-	if (scroll > scrollOffset && $('body').hasClass('is-scrolled')) {
-		return;
-	}
+        // Logo animation
+        initTypeWritter({
+            elementId: 'main-header-logo',
+            delay: 100
+        });
+    });
+    $(window).on('scroll', function (event) {
+        var scroll = $(this).scrollTop();
+        doHeaderAnimation(scroll);
+    });
 
-	if (scroll <= scrollOffset) {
-		$('body').removeClass('is-scrolled');
-	} else {
-		$('body').addClass('is-scrolled');
-	}
-}
+    function doHeaderAnimation(scroll) {
+        var scrollOffset = 63;
+        if (scroll > scrollOffset && $('body').hasClass('is-scrolled')) {
+            return;
+        }
+
+        if (scroll <= scrollOffset) {
+            $('body').removeClass('is-scrolled');
+        } else {
+            $('body').addClass('is-scrolled');
+        }
+    }
+
+    // Typewritter logo
+    function initTypeWritter(config) {
+        setupTypewritter(config);
+
+        var element = document.getElementById(config.elementId);
+        var spanList = element.getElementsByTagName('span');
+
+        var queue = new Promise(function (resolve) {
+            setTimeout(function () {
+                makeElementVisible(spanList[0]);
+                resolve();
+            }, config.delay);
+        });
+
+        var _loop = function _loop(i) {
+            queue = queue.then(function () {
+                return new Promise(function (resolve) {
+                    setTimeout(function () {
+                        makeElementVisible(spanList[i]);
+                        resolve();
+                    }, config.delay);
+                });
+            });
+        };
+
+        for (var i = 1; i < spanList.length; i++) {
+            _loop(i);
+        };
+    }
+
+    function setupTypewritter(config) {
+        // Grab the text
+        var element = document.getElementById(config.elementId);
+        var text = element.innerHTML;
+        var newText = '';
+
+        // Let's divide the text into spans
+        for (var i = 0; i < text.length; i++) {
+            newText += '<span>' + text.charAt(i) + '</span>';
+        }
+
+        // Reassign the text with spans
+        element.innerHTML = newText;
+    }
+
+    function makeElementVisible(element) {
+        element.className += 'visible';
+    }
+})(jQuery);
 
 /***/ }),
 /* 9 */
