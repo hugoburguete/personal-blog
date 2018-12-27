@@ -57,10 +57,10 @@
 
             <div class="category-container">
                 <div class="form-group">
-                    <label for="category">Category</label>
+                <label for="category">Category</label>
                     <select name="categoryId" id="category">
                         @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" {{ old('categoryId', $post->categories->first()->id) ? 'selected="selected"' : '' }}>{{ $category->name }}</option>
+                            <option value="{{ $category->id }}" {{ old('categoryId', $post->categories->first()->id) == $category->id ? 'selected="selected"' : '' }}>{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
