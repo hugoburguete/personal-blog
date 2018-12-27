@@ -31,7 +31,6 @@
 
     @include respond-to($medium-width) {
         p {
-            font-size: 1.25em;
             margin-bottom: 1em;
         }
     }
