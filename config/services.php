@@ -35,4 +35,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'google' => [
+        'webmastertools' => env('GOOGLE_WEBMASTER_TOOLS_KEY'),
+    ],
+
 ];
