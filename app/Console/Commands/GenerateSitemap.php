@@ -56,7 +56,7 @@ class GenerateSitemap extends Command
         $url = $xml->addChild('url');
         $url->addChild('loc', url('/'));
         $lastPost = Post::latest()->first();
-        $url->addChild('lastMod', $lastPost->created_at->format(self::XML_DATE_FORMAT));
+        $url->addChild('lastmod', $lastPost->created_at->format(self::XML_DATE_FORMAT));
         $url->addChild('changefreq', 'monthly');
         
         // Category pages
@@ -67,8 +67,8 @@ class GenerateSitemap extends Command
             $catXml = $xml->addChild('url');
             $catXml->addChild('loc', url('/category/' . $category->slug));
             $latestCategoryPost = $category->posts->sortBy('updated_at')->first();
-            $catXml->addChild('lastMod', $latestCategoryPost->updated_at->format(self::XML_DATE_FORMAT));
-            $url->addChild('changefreq', 'monthly');
+            $catXml->addChild('lastmod', $latestCategoryPost->updated_at->format(self::XML_DATE_FORMAT));
+            $catXml->addChild('changefreq', 'monthly');
         }
         
         // Post pages
@@ -78,7 +78,7 @@ class GenerateSitemap extends Command
         foreach ($posts as $post) {
             $postXml = $xml->addChild('url');
             $postXml->addChild('loc', url('/post/' . $post->slug));
-            $postXml->addChild('lastMod', $post->updated_at->format(self::XML_DATE_FORMAT));
+            $postXml->addChild('lastmod', $post->updated_at->format(self::XML_DATE_FORMAT));
             $postXml->addChild('changefreq', 'monthly');
         }
 
