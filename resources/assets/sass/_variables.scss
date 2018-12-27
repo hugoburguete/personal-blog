@@ -12,13 +12,19 @@ $logo-font-family: "Play", sans-serif;
 $base-font-size: 1em;
 $base-line-height: 1.6em;
 $base-text-spacing: 0.5em; // Used for magin bottom of typography
-$logo-font-size: $base-font-size * 1.5;
 $heading-color: $theme-primary-text-color;
 $paragraph-color: $theme-primary-text-color;
 
 // Body
 $body-bg: $theme-primary-color;
 
-// Breakpoints
+// Utils
 $container-max-width: 1024px;
 $post-container-max-width: $container-max-width * (2 / 3);
+
+// Breakpoints
+$small-width: 320px;
+$medium-width: 768px;
+$large-width: 1024px;
+$xlarge-width: 1280px;
+$xxlarge-width: 1366px;

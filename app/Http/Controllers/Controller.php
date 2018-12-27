@@ -21,10 +21,7 @@ class Controller extends BaseController
 
     public function getBaseData()
     {
-    	$repo = app()->make(PostRepository::class);
-    	$recentArticles = $repo->getRecent();
-    	return [
-    		'recentArticles' => $recentArticles,
-    	];
+        // Atm, I don't need it but leaving it as it may be useful in the future
+    	return [];
     }
 }

@@ -98,7 +98,7 @@ abstract class Repository implements RepositoryInterface
      * @param  array  $columns properties to populate
      * @return App\Models\BaseModel
      */
-    public function all($columns = array('*'))
+    public function all($columns = ['*'])
     {
         if ($this->perPage > 0) {
             return $this->getModel()

@@ -5,7 +5,7 @@
 
 @section('content')
 	<div class="container">
-		<div class="card-listing row">
+		<div class="card-listing">
 			@forelse ($posts as $post)
 				@include('post.listing.article', ['post' => $post])
 			@empty
