@@ -14,8 +14,12 @@
 }
 @mixin heading-1() {
 	@include base-heading();
-	font-size: $base-font-size * 2;
+    font-size: $base-font-size * 2;
 	line-height: $base-line-height;
+    
+    @include respond-to($medium-width) {
+        font-size: $base-font-size * 2.5;
+    }
 }
 @mixin heading-2() {
 	@include base-heading();
@@ -27,8 +31,12 @@
 
 @mixin heading-4() {
 	@include base-heading();
-	font-size: $base-font-size * 1.5;
-	line-height: $base-line-height * 1.2;
+    font-size: $base-font-size * 1.3;
+    line-height: $base-line-height * 1.2;
+    
+    @include respond-to($medium-width) {
+        font-size: $base-font-size * 1.5;
+    }
 }
 
 @mixin p() {

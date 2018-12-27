@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>{{ $category->name }}</h1>
-    <div class="row justify-content-center">
+    <div class="justify-content-center">
         @forelse ($posts as $post)
             @include('post.listing.article', ['post' => $post])
         @empty

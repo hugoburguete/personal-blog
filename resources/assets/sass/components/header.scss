@@ -3,16 +3,17 @@
     display: flex;
     justify-content: space-between;
     
-	a {
-        display: block;
-		color: $theme-primary-text-color;
-		font-family: $logo-font-family;
-		font-size: $logo-font-size;
-    }
-
     #main-header-logo {
         width: 20%;
-        margin-top: 4px;
+        display: block;
+        color: $theme-primary-text-color;
+        font-family: $logo-font-family;
+        font-size: $base-font-size * 1.4;
+        
+        @include respond-to($medium-width) {
+            font-size: $base-font-size * 1.5;
+            margin-top: 4px;
+        }
     }
 
     #main-header-logo span {
@@ -42,7 +43,11 @@
 
         .icon-mail {
             color: $theme-primary-text-color;
-            font-size: 30px;
+            font-size: 24px;
+            
+            @include respond-to($medium-width) {
+                font-size: 30px;
+            }
         }
     }
 }
