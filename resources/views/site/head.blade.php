@@ -5,6 +5,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 {!! SEO::generate(config('app.env') === 'live') !!}
 <meta name="google-site-verification" content="{{ config('services.google.webmastertools') }}" />
+<meta name="msvalidate.01" content="{{ config('services.bing.webmastertools') }}" />
 @yield('site_meta')
 
 {{-- App stylesheets --}}

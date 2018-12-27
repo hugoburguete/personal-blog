@@ -39,4 +39,8 @@ return [
         'webmastertools' => env('GOOGLE_WEBMASTER_TOOLS_KEY'),
     ],
 
+    'bing' => [
+        'webmastertools' => env('BING_WEBMASTER_TOOLS_KEY'),
+    ],
+
 ];
