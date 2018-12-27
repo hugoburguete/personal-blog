@@ -387,23 +387,23 @@ table {
 
 table td,
 table th {
-  border: 1px solid #ddd;
+  border: 1px solid #FFF;
   padding: 8px;
 }
 
 table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #5f5f5f;
 }
 
 table tr:hover {
-  background-color: #ddd;
+  background-color: #5f5f5f;
 }
 
 table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  color: white;
+  color: #FFF;
 }
 
 #page-footer {
@@ -517,12 +517,17 @@ table th {
 .form-group label {
   display: block;
   margin: 10px 0;
+  color: #FFF;
 }
 
 .form-group input[type=text] {
   border: 1px solid #CCC;
   width: 100%;
   padding: 5px 10px;
+}
+
+.ck p {
+  color: #000;
 }
 
 .index-page .featured-article .card {
